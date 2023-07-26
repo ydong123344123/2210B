@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style type="text/css">
+    body,div(margin:0,padding:0);
+    html,body{height: 100;}
+    div{
+        width: 300px;
+        margin: 10px auto;
+        text-align: center;
+        input{
+
+            margin: 5px 0;
+
+        }
+        button{
+            cursor:pointer;
+        }
+    }
+  </style>
+  <script type="text/javascript">
+    function transFun() {
+      var line = document.getElementsByName("mission");
+      for (var i = 0; i < line.length; i++) {
+        alert(line[i].value);
+      }
+    }
+  </script>
+  <body>
+    <div>
+      <input type="text" name="mission" value="北京市" />
+      <input type="text" name="mission" value="朝阳区" /><br />
+      <input type="text" name="mission" value="传参" onclick="transFun()" />
+    </div>
+  </body>
+</html>
