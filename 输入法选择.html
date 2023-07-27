@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      body,
+      #outer input,
+      #list {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      #outer {
+        width: 200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      #btn,
+      #list {
+        cursor: pointer;
+      }
+      #outer #btn {
+        margin-top: 20px;
+      }
+      #outer #list {
+        border: 1px solid black;
+        width: 40px;
+        margin: 5px auto;
+        list-style-type: none;
+      }
+      #list #last {
+        border-top: 1px black solid;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function () {
+        var oBtn = document.getElementById("btn");
+        var oList = document.getElementById("list");
+        var oLi = oList.getElementsByTagName("li");
+        var oLast = document.getElementById("last");
+        oLast.onclick = function () {
+          oList.style.display = "none";
+        };
+        oBtn.onclick = function () {
+          if (oList.style.display != "block") {
+            oList.style.display = "block";
+          } else {
+            oLast.onclick();
+          }
+        };
+        for (var i = 0; i < oLi.length; i++) {
+          oLi[i].onmouseover = function () {
+            this.style.background = "#d14848";
+          };
+          oLi[i].onmouseout = function () {
+            this.style.background = "";
+          };
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <input type="button" id="btn" value="输入法" />
+      <ul id="list">
+        <li>简写</li>
+        <li>拼音</li>
+        <li id="last">关闭</li>
+      </ul>
+    </div>
+  </body>
+</html>
