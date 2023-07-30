@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      html,
+      body,
+      p,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+      #outer {
+        border: 1px solid #474958;
+        width: 200px;
+        margin: 10px auto;
+        color: #474958;
+        cursor: pointer;
+        overflow: hidden;
+        zoom: 1;
+      }
+      #header {
+        background: #b6b9c7;
+        margin: 1px;
+        padding: 5px;
+      }
+      #triangle {
+        border-top: 6px solid black;
+        border-left: 6px solid rgba(0, 0, 0, 0);
+        border-right: 6px solid rgba(0, 0, 0, 0);
+        float: right;
+        margin-top: -12px;
+      }
+
+      #list {
+        border-top: 1px solid #474958;
+      }
+      #list li {
+        background: #e0e2eb;
+        margin-bottom: 1px;
+      }
+      #list li.last {
+        margin-bottom: 0;
+      }
+      #list li:hover {
+        background: white;
+        text-decoration: underline;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function () {
+        var oHeader = document.getElementById("header");
+        var oList = document.getElementById("list");
+        var oTri = document.getElementById("triangle");
+        var style = oList.style;
+        oHeader.onclick = function () {
+          if (oList.style.display != "none") {
+            oList.style.cssText = "display:none";
+            oTri.style.cssText =
+              "border-top:0 solid black; border-bottom:6px solid black";
+          } else {
+            oList.style.cssText = "";
+            oTri.style.cssText = "";
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="header">
+        <p>播放列表。。。</p>
+        <div id="triangle"></div>
+      </div>
+      <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li class="last">6</li>
+      </ul>
+    </div>
+  </body>
+</html>
