@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      div {
+        width: 50px;
+        margin: 10px auto;
+        text-align: center;
+      }
+      input {
+        width: 30px;
+        cursor: pointer;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function () {
+        var oInput = document.getElementsByTagName("input")[0];
+        console.log(oInput);
+        function sum() {
+          var sum = parseInt(oInput.value);
+          var i = 1;
+          return (sum += i);
+        }
+        oInput.onclick = function () {
+          console.log(this.value);
+          alert(sum());
+          this.value = sum();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="0" />
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      #outer {
+        width: 100%;
+        margin: 10px auto;
+        text-align: center;
+        font: 12px/1.5;
+      }
+      #sum {
+        margin: 10px;
+        display: inline;
+        color: green;
+      }
+      #first,
+      #second {
+        margin: 0 10px;
+        width: 50px;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function () {
+        var oInput = document.getElementsByTagName("input");
+        for (var i = 0; i < 2; i++) {
+          oInput[i].onkeyup = function () {
+            this.value = this.value.replace(/[^\d|","]/, "");
+          };
+          oInput[2].onclick = function () {
+            var f = document.getElementById("first").value;
+            var s = document.getElementById("second").value;
+            var oSum = document.getElementById("sum");
+            var sum = 0;
+            console.log(oSum);
+            sum += parseInt(f) + parseInt(s);
+            oSum.innerHTML = sum;
+          };
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <input type="text" id="first" />+<input type="text" id="second" />=
+      <div id="sum">?</div>
+      <input type="button" value="求和" />
+    </div>
+  </body>
+</html>

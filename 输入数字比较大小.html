@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>mydemo</title>
+    <style type="text/css">
+      #outer {
+        text-align: center;
+      }
+      .f-text {
+        width: 50px;
+        margin: 0 5px;
+      }
+      strong,
+      span {
+        padding: 0 5px;
+      }
+      span {
+        color: red;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function () {
+        var oInput = document.getElementsByTagName("input");
+        var oSpan = document.getElementsByTagName("span")[0];
+        for (var i = 0; i < oInput.length - 1; i++) {
+          /*向框内输入数据时，限制其类型*/
+          oInput[i].onkeyup = function () {
+            this.value = this.value.replace(/[^\d]/, "");
+          };
+          /*数据比较函数*/
+          function match() {
+            var m = 0;
+            m =
+              parseInt(oInput[0].value) >= parseInt(oInput[1].value)
+                ? parseInt(oInput[0].value)
+                : parseInt(oInput[1].value);
+            return m;
+          }
+          /*对比事件*/
+          oInput[2].onclick = function () {
+            oSpan.innerHTML = match();
+          };
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <input type="text" class="f-text" /><strong>vs</strong
+      ><input type="text" class="f-text" /><input
+        type="button"
+        value="最大的数是>>"
+      /><span>?</span>
+    </div>
+  </body>
+</html>
